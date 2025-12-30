@@ -1,11 +1,17 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { useDemo } from '@/context/DemoContext';
 
 export default function DemoBanner() {
     const { isDemo, setIsDemo } = useDemo();
+    const [mounted, setMounted] = useState(false);
 
-    if (!isDemo) {
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted || !isDemo) {
         return null;
     }
 
