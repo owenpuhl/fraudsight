@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { useAccountsMock } from '@/hooks/useAccountsMock'; // Import your actual hook
-import { useAccountForecast, useAggregateForecast } from '@/hooks/useForecast'; // Change to useForecast for real data
+import { useAccountsMock } from '@/hooks/useAccountsMock';
+import { useAccountForecastMock, useAggregateForecastMock } from '@/hooks/useForecastMock';
 import { Line } from 'react-chartjs-2';
 import {
     Chart as ChartJS,
@@ -41,9 +41,9 @@ export default function ForecastPanel() {
     });
 
     const {data: accountForecast, loading: accountLoading, error: accountError} =
-        useAccountForecast(selectedAccountId, forecastDays);
+        useAccountForecastMock(selectedAccountId, forecastDays);
     const {data: aggregateForecast, loading: aggregateLoading, error: aggregateError} =
-        useAggregateForecast(forecastDays);
+        useAggregateForecastMock(forecastDays);
 
     const formatCurrency = (value: number) => {
         return new Intl.NumberFormat('en-US', {

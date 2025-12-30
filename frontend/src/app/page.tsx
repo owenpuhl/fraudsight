@@ -58,14 +58,13 @@ export default function Home() {
 
                 {/* Heading */}
                 <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
-                    Cutting-Edge Financial
-                    <span className="block text-blue-600">Analytics Tool</span>
+                    Fraudsight
                 </h1>
 
-                {/* Subtitle */}
-                <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                    Transform your financial data into actionable insights with
-                    advanced analytics and real-time reporting.
+                {/* Tagline */}
+                <p className="text-2xl md:text-3xl font-semibold text-gray-700 mb-8 max-w-3xl mx-auto">
+                    Hindsight is 20/20.
+                    <span className="block text-blue-600">Fraudsight is Real-Time.</span>
                 </p>
 
                 {/* Features */}

@@ -9,7 +9,7 @@ import { DemoProvider } from '@/context/DemoContext';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-    title: 'Financial Analytics',
+    title: 'Fraudsight',
     description: 'Cutting-edge financial analytics tool',
 };
 
