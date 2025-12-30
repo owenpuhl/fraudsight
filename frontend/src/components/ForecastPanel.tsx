@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useAccountsMock } from '@/hooks/useAccountsMock';
-import { useAccountForecastMock, useAggregateForecastMock } from '@/hooks/useForecastMock';
+import { useAccountForecast, useAggregateForecast } from '@/hooks/useForecastMock';
 import { Line } from 'react-chartjs-2';
 import {
     Chart as ChartJS,
@@ -41,9 +41,9 @@ export default function ForecastPanel() {
     });
 
     const {data: accountForecast, loading: accountLoading, error: accountError} =
-        useAccountForecastMock(selectedAccountId, forecastDays);
+        useAccountForecast(selectedAccountId, forecastDays);
     const {data: aggregateForecast, loading: aggregateLoading, error: aggregateError} =
-        useAggregateForecastMock(forecastDays);
+        useAggregateForecast(forecastDays);
 
     const formatCurrency = (value: number) => {
         return new Intl.NumberFormat('en-US', {
