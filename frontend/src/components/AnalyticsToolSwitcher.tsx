@@ -1,6 +1,6 @@
 'use client';
 
-export type AnalyticsTool = 'accounts' | 'transactions' | 'insights' | 'reports' | 'forecast';
+export type AnalyticsTool = 'accounts' | 'insights' | 'forecast';
 
 interface AnalyticsToolSwitcherProps {
     currentTool: AnalyticsTool;
@@ -11,8 +11,6 @@ const tools: { id: AnalyticsTool; label: string; icon: string; disabled?: boolea
     { id: 'accounts', label: 'Accounts', icon: '💳' },
     { id: 'insights', label: 'Graph Analytics', icon: '📊' },
     { id: 'forecast', label: 'Forecast', icon: '🔮' },
-    { id: 'transactions', label: 'Transactions', icon: '💸', disabled: true },
-    { id: 'reports', label: 'Reports', icon: '📈', disabled: true },
 ];
 
 export default function AnalyticsToolSwitcher({ currentTool, onToolChange }: AnalyticsToolSwitcherProps) {
