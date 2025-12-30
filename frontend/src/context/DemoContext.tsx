@@ -14,18 +14,20 @@ export function DemoProvider({ children }: { children: React.ReactNode }) {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-        const demoMode = localStorage.getItem('fraudsight_demo_mode') === 'true';
-        setIsDemo(demoMode);
+        // Only access localStorage on client side
+        if (typeof window !== 'undefined') {
+            const demoMode = localStorage.getItem('fraudsight_demo_mode') === 'true';
+            setIsDemo(demoMode);
+        }
         setMounted(true);
     }, []);
 
     useEffect(() => {
-        localStorage.setItem('fraudsight_demo_mode', isDemo ? 'true' : 'false');
-    }, [isDemo]);
-
-    if (!mounted) {
-        return <>{children}</>;
-    }
+        // Only access localStorage on client side
+        if (typeof window !== 'undefined' && mounted) {
+            localStorage.setItem('fraudsight_demo_mode', isDemo ? 'true' : 'false');
+        }
+    }, [isDemo, mounted]);
 
     return (
         <DemoContext.Provider value={{ isDemo, setIsDemo }}>

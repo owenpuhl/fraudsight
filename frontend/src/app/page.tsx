@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import {useAuth0} from "@auth0/auth0-react";
 import Link from 'next/link';
@@ -10,6 +10,11 @@ export default function Home() {
     const { isAuthenticated, isLoading } = useAuth0();
     const { isDemo, setIsDemo } = useDemo();
     const router = useRouter();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     useEffect(() => {
         if (isDemo) {
@@ -154,7 +159,11 @@ export default function Home() {
                         </svg>
                     </Link>
                     <button
-                        onClick={() => setIsDemo(true)}
+                        onClick={() => {
+                            if (mounted) {
+                                setIsDemo(true);
+                            }
+                        }}
                         className="inline-flex items-center px-8 py-4 bg-white border-2 border-blue-600 hover:bg-blue-50 text-blue-600 font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5"
                     >
                         ✨ Try Demo
