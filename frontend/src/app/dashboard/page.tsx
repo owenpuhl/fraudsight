@@ -1,13 +1,33 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { useAuth0 } from '@auth0/auth0-react';
+import { useDemo } from '@/context/DemoContext';
 import AccountsList from '@/components/AccountsList';
 import AnalyticsToolSwitcher, { AnalyticsTool } from '@/components/AnalyticsToolSwitcher';
 import AccountGraphAnalytics from '@/components/AccountGraphAnalytics';
 import ForecastPanel from '@/components/ForecastPanel';
 
 export default function DashboardPage() {
+    const { isAuthenticated, isLoading } = useAuth0();
+    const { isDemo } = useDemo();
+    const router = useRouter();
     const [currentTool, setCurrentTool] = useState<AnalyticsTool>('accounts');
+
+    useEffect(() => {
+        if (!isLoading && !isAuthenticated && !isDemo) {
+            router.push('/');
+        }
+    }, [isLoading, isAuthenticated, isDemo, router]);
+
+    if (isLoading) {
+        return (
+            <div className="min-h-screen flex items-center justify-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+            </div>
+        );
+    }
 
     const renderToolContent = () => {
         switch (currentTool) {

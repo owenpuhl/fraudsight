@@ -4,16 +4,20 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import {useAuth0} from "@auth0/auth0-react";
 import Link from 'next/link';
+import { useDemo } from '@/context/DemoContext';
 
 export default function Home() {
     const { isAuthenticated, isLoading } = useAuth0();
+    const { isDemo, setIsDemo } = useDemo();
     const router = useRouter();
 
     useEffect(() => {
-        if (!isLoading && isAuthenticated) {
+        if (isDemo) {
+            router.push('/dashboard');
+        } else if (!isLoading && isAuthenticated) {
             router.push('/dashboard');
         }
-    }, [isAuthenticated, isLoading, router]);
+    }, [isDemo, isAuthenticated, isLoading, router]);
 
     if (isLoading) {
         return (
@@ -128,26 +132,34 @@ export default function Home() {
                     </div>
                 </div>
 
-                {/* CTA Button */}
-                <Link
-                    href="/login"
-                    className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5"
-                >
-                    Get Started
-                    <svg
-                        className="w-5 h-5 ml-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Link
+                        href="/login"
+                        className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5"
                     >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M13 7l5 5m0 0l-5 5m5-5H6"
-                        />
-                    </svg>
-                </Link>
+                        Get Started
+                        <svg
+                            className="w-5 h-5 ml-2"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M13 7l5 5m0 0l-5 5m5-5H6"
+                            />
+                        </svg>
+                    </Link>
+                    <button
+                        onClick={() => setIsDemo(true)}
+                        className="inline-flex items-center px-8 py-4 bg-white border-2 border-blue-600 hover:bg-blue-50 text-blue-600 font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5"
+                    >
+                        ✨ Try Demo
+                    </button>
+                </div>
 
                 {/* Footer Note */}
                 <p className="text-sm text-gray-500 mt-8">
