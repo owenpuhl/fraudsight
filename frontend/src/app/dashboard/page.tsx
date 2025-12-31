@@ -7,6 +7,7 @@ import { useDemo } from '@/context/DemoContext';
 import AccountsList from '@/components/AccountsList';
 import AnalyticsToolSwitcher, { AnalyticsTool } from '@/components/AnalyticsToolSwitcher';
 import AccountGraphAnalytics from '@/components/AccountGraphAnalytics';
+import PortfolioAnalytics from '@/components/PortfolioAnalytics';
 import ForecastPanel from '@/components/ForecastPanel';
 
 export default function DashboardPage() {
@@ -35,6 +36,8 @@ export default function DashboardPage() {
                 return <AccountsList />;
             case 'insights':
                 return <AccountGraphAnalytics />;
+            case 'portfolio':
+                return <PortfolioAnalytics />;
             case 'forecast':
                 return <ForecastPanel />;
             default:

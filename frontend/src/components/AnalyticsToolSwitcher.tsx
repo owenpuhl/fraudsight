@@ -1,6 +1,6 @@
 'use client';
 
-export type AnalyticsTool = 'accounts' | 'insights' | 'forecast';
+export type AnalyticsTool = 'accounts' | 'insights' | 'portfolio' | 'forecast';
 
 interface AnalyticsToolSwitcherProps {
     currentTool: AnalyticsTool;
@@ -10,6 +10,7 @@ interface AnalyticsToolSwitcherProps {
 const tools: { id: AnalyticsTool; label: string; icon: string; disabled?: boolean }[] = [
     { id: 'accounts', label: 'Accounts', icon: '💳' },
     { id: 'insights', label: 'Graph Analytics', icon: '📊' },
+    { id: 'portfolio', label: 'Portfolio Risk', icon: '💼' },
     { id: 'forecast', label: 'Forecast', icon: '🔮' },
 ];
 
