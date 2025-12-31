@@ -50,9 +50,9 @@ export default function NavBar() {
 
     return (
         <nav className="bg-white border-b border-gray-100 shadow-sm sticky top-0 z-50">
-            <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-                <Link href="/" className="text-lg font-bold text-gray-900 flex items-center gap-3 hover:text-blue-600 transition-colors group">
-                    <div className="inline-flex items-center justify-center w-10 h-10 bg-blue-600 rounded-lg group-hover:bg-blue-700 transition-colors">
+            <div className="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+                <Link href="/" className="text-lg font-bold text-gray-900 flex items-center gap-2 sm:gap-3 hover:text-blue-600 transition-colors group flex-shrink-0">
+                    <div className="inline-flex items-center justify-center w-10 h-10 bg-blue-600 rounded-lg group-hover:bg-blue-700 transition-colors flex-shrink-0">
                         <svg
                             className="w-6 h-6 text-white"
                             fill="none"
@@ -67,20 +67,20 @@ export default function NavBar() {
                             />
                         </svg>
                     </div>
-                    Fraudsight
+                    <span className="hidden sm:inline">Fraudsight</span>
                 </Link>
 
-                <div className="flex items-center gap-6">
+                <div className="flex items-center gap-3 sm:gap-6 ml-auto">
                     {isAuthenticated ? (
                         <>
                             <Link
                                 href="/dashboard"
-                                className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
+                                className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors hidden sm:block"
                             >
                                 Dashboard
                             </Link>
-                            <div className="flex items-center gap-4">
-                                <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 sm:gap-4">
+                                <div className="flex items-center gap-1 sm:gap-2">
                                     {user?.picture && (
                                         <img
                                             src={user.picture}
@@ -94,7 +94,7 @@ export default function NavBar() {
                                 </div>
                                 <button
                                     onClick={handleLogout}
-                                    className="bg-red-50 hover:bg-red-100 text-red-600 hover:text-red-700 px-4 py-2 rounded-lg transition-colors text-sm font-medium border border-red-200"
+                                    className="bg-red-50 hover:bg-red-100 text-red-600 hover:text-red-700 px-3 sm:px-4 py-2 rounded-lg transition-colors text-xs sm:text-sm font-medium border border-red-200 whitespace-nowrap"
                                 >
                                     Logout
                                 </button>
@@ -103,7 +103,7 @@ export default function NavBar() {
                     ) : (
                         <button
                             onClick={handleLogin}
-                            className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-5 py-2 rounded-lg transition-all text-sm font-medium shadow-md hover:shadow-lg"
+                            className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-4 sm:px-5 py-2 rounded-lg transition-all text-xs sm:text-sm font-medium shadow-md hover:shadow-lg whitespace-nowrap"
                         >
                             Login
                         </button>
