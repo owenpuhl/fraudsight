@@ -22,7 +22,7 @@ export default function NavBar() {
 
     if (isLoading) {
         return (
-            <nav className="bg-white border-b border-gray-100 shadow-sm">
+            <nav className="bg-white border-b border-gray-100">
                 <div className="container mx-auto px-6 py-3 flex justify-between items-center">
                     <Link href="/" className="text-lg font-bold text-gray-900 flex items-center gap-3">
                         <div className="inline-flex items-center justify-center w-10 h-10 bg-blue-600 rounded-lg">
@@ -49,7 +49,7 @@ export default function NavBar() {
     }
 
     return (
-        <nav className="bg-white border-b border-gray-100 shadow-sm sticky top-0 z-50">
+        <nav className="bg-white border-b border-gray-100 sticky top-0 z-50">
             <div className="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
                 <Link href="/" className="text-lg font-bold text-gray-900 flex items-center gap-2 sm:gap-3 hover:text-blue-600 transition-colors group flex-shrink-0">
                     <div className="inline-flex items-center justify-center w-10 h-10 bg-blue-600 rounded-lg group-hover:bg-blue-700 transition-colors flex-shrink-0">

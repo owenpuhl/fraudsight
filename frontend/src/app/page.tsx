@@ -171,7 +171,7 @@ export default function Home() {
 
                 {/* Footer Note */}
                 <p className="text-sm text-gray-500 mt-8">
-                    Trusted by leading financial institutions worldwide
+                    Built with Capital One's Financial APIs
                 </p>
             </div>
         </div>
