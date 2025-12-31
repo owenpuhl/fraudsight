@@ -15,3 +15,4 @@ fastapi/.env*
 .env
 .requirements.txt
 __pycache__/
+frontend/public/logo.svg
