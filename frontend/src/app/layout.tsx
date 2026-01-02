@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     icons: {
         icon: '/logo.png',
     },
+    verification: {
+        google: 'F8Ugx6C7T4bHvmf4ppsXsVoM0Nfn-WOl8rEYmrc-sYY',
+    },
     openGraph: {
         title: 'Fraudsight',
         description: 'Real-time financial risk analytics platform by Owen Puhl.',
