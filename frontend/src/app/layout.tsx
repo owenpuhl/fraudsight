@@ -15,9 +15,15 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
     title: 'Fraudsight',
-    description: 'Cutting-edge financial analytics tool',
+    description: 'Real-time financial risk analytics platform by Owen Puhl.',
+    keywords: 'portfolio risk analytics, VaR, Sharpe Ratio, financial intelligence, risk metrics',
     icons: {
         icon: '/logo.png',
+    },
+    openGraph: {
+        description: 'Real-time financial risk analytics platform by Owen Puhl.',
+        url: 'https://fraudsight.vercel.app',
+        type: 'website',
     },
 };
 
