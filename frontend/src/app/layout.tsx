@@ -21,6 +21,7 @@ export const metadata: Metadata = {
         icon: '/logo.png',
     },
     openGraph: {
+        title: 'Fraudsight',
         description: 'Real-time financial risk analytics platform by Owen Puhl.',
         url: 'https://fraudsight.vercel.app',
         type: 'website',
